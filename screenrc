@@ -1,0 +1,30 @@
+defencoding utf8
+encoding utf8 utf8
+
+# 回線が切れた場合もscreenは生き続け、"screen -r"で再接続できる
+autodetach on
+
+escape ^zz
+
+defbce "on"
+
+# スタートアップメッセージは表示しない
+startup_message off
+
+# 反転モードの色
+sorendition 10 92
+
+#hardstatus on
+#hardstatus alwayslastline "bob3 | %c %m/%d | %w"
+
+bind W windowlist -b
+
+time '%m月%d日 (%D) %c:%s %H%? %l%?'
+
+#screen 0 
+#screen 1 emacs -nw
+#screen 2 w3m -B
+#select 0
+
+# マウスホイールでスクロールする方法
+termcapinfo xterm* ti@:te@
