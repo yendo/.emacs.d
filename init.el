@@ -138,9 +138,6 @@
 
 (which-func-mode t)
 
-
-
-
 ;; perl プログラム編集用の設定
 
 (setq 
@@ -152,7 +149,6 @@
  cperl-tab-always-indent t
  cperl-highlight-variables-indiscriminately t
  )
-
 
 
 (defun perltidy-region ()               ;選択regionをperltidy
@@ -264,59 +260,6 @@
               (define-key mozc-mode-map (kbd "<zenkaku-hankaku>") 'toggle-input-method)))
   )
 
-;; ;; ATOK 設定
-;; 
-;; (require 'iiimcf-sc)
-;; 
-;; (setq iiimcf-server-control-hostlist
-;;        '("/tmp/.iiim-yendo/:0"
-;;                 "iiim:9010" "iiim.foo.com:9000"))
-;; 
-;; (when (and (= 0 (shell-command
-;;                  (concat
-;;                   "netstat --unix -l | grep -q " (car iiimcf-server-control-hostlist))))
-;;            (require 'iiimcf-sc nil t))
-;;   (setq iiimcf-server-control-default-language "ja")
-;;   (setq iiimcf-server-control-default-input-method "atokx3")
-;;   (setq default-input-method 'iiim-server-control)
-;;   )
-;; 
-;; (setq default-input-method 'iiim-server-control)
-;; 
-;; ; キーバインド変更
-;; ; http://d.hatena.ne.jp/kiwanami/20101205/1291563195
-;; 
-;;  (setq iiimcf-keycode-spec-alist
-;;        (append 
-;;         '((13 10 0)       ; c-m commit -> [Enter]
-;;  
-;;           (7 27)          ; c-g -> [esc]
-;;                           ;; MS-IMEのキー体系を仮定
-;;           (1 36 65535)    ; c-a head position -> [Home]
-;;           (5 35 65535)    ; c-e last position -> [End]
-;;           (2 37 65535)    ; c-b backward bunsetu -> [←]
-;;           (16 38 65535)   ; c-p previous candidate -> [↑]
-;;           (6 39 65535)    ; c-f next bunsetu -> [→]
-;;           (14 40 65535)   ; c-n next candidate -> [↓]
-;;           
-;;           (11 37 65535 1) ; c-k narrow bunsetu -> [Shift+←]
-;;           (12 39 65535 1) ; c-l widen bunsetu -> [Shift+→]
-;;           
-;;           (20 121 65535)  ; c-t alphabet -> [F10]
-;;           (9 118 65535)  ; c-i kana -> [F7]
-;;  
-;;  ;         (4 116 65535)  ; c-d DELETE
-;;           )
-;;         iiimcf-keycode-spec-alist))
-;; ; 
-;; ;; 
-;; ;; 完璧じゃないですか。どうもこれなら常用できそうかも。
-;; ;
-;; ; 
-;; ;(require 'iiimcf-sc)
-;; ;(setq default-input-method 'iiim-server-control)
-
-
 ;; マシン毎に設定を切り替える
 
 ;(load "migemo")
@@ -414,11 +357,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; その他
-
-;;; calendar
-
-;(require 'icalendar)
-;(icalendar-import-file "~/.evolution/calendar/local/system/calendar.ics" "~/diary" )
 
 ; 個人用 info 
 
@@ -928,8 +866,6 @@
 
 (setq user-mail-address "yendo0206@gmail.com"
       ; user-mail-address "yendo@tsurukawa.org"
-;      message-user-organization "Dream Train Internet"
-      user-full-name  "遠藤 美純"
       message-from-style 'angles
       )
 
