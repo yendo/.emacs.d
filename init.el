@@ -253,18 +253,17 @@
 ;(require 'zlc)
 
 
-(add-to-list 'load-path "/usr/share/emacs24/site-lisp/emacs-mozc")
+(when (equal system-name "bob3.tsurukawa.org")
 
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
+  (add-to-list 'load-path "/usr/share/emacs24/site-lisp/emacs-mozc")
+  (require 'mozc)
+  (setq default-input-method "japanese-mozc")
+  (global-set-key (kbd "<zenkaku-hankaku>") 'toggle-input-method)
 
-(global-set-key (kbd "<zenkaku-hankaku>") 'toggle-input-method)
-
-(add-hook 'mozc-mode-hook
-  (lambda()
-    (define-key mozc-mode-map (kbd "<zenkaku-hankaku>") 'toggle-input-method)))
-
-
+  (add-hook 'mozc-mode-hook
+            (lambda()
+              (define-key mozc-mode-map (kbd "<zenkaku-hankaku>") 'toggle-input-method)))
+  )
 
 ;; ;; ATOK 設定
 ;; 
