@@ -39,6 +39,10 @@
         (package-install pkg))))
 
 
+;;
+(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
+
+
 ;; 論理行移動に
 (setq line-move-visual nil)
 
