@@ -3,3 +3,4 @@ server/
 auto-save-list/
 eshell/
 *.???~
+.session
