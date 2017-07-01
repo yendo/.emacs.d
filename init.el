@@ -169,7 +169,6 @@
 
 
 
-
 ; changelog mode
 (setq change-log-default-name "changelog")
 (setq add-log-full-name "Yoshizumi Endo")
@@ -209,10 +208,10 @@
   (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "iceweasel")
 
-)
+  )
 
   (progn 
-    (menu-bar-mode nil)
+    (menu-bar-mode 0)
     (display-time)
 
     (setq browse-url-browser-function 'w3m-browse-url)
