@@ -8,6 +8,37 @@
 ;			 "/home/yendo/.emacs.d/iiimecf"
 			 "/home/yendo/.emacs.d/lisp" ) load-path ))
 
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+
+(require 'cl)
+
+(defvar installing-package-list
+  '(
+    ;; ここに使っているパッケージを書く。
+;    php-mode
+;    scala-mode
+;    markdown-mode
+;    scss-mode
+;    haskell-mode
+;    google-c-style
+;    yaml-mode
+;    open-junk-file
+    groovy-mode
+    ))
+
+(let ((not-installed (loop for x in installing-package-list
+                            when (not (package-installed-p x))
+                            collect x)))
+  (when not-installed
+    (package-refresh-contents)
+    (dolist (pkg not-installed)
+        (package-install pkg))))
+
+
 ;; 論理行移動に
 (setq line-move-visual nil)
 
