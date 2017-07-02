@@ -3,5 +3,5 @@ server/
 auto-save-list/
 eshell/
 elpa/
-*.???~
+*~
 .session
