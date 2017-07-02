@@ -8,6 +8,10 @@ escape ^zz
 
 defbce "on"
 
+term xterm-256color
+
+#windowlist string "%4n %h%=%f"
+
 # スタートアップメッセージは表示しない
 startup_message off
 
@@ -18,8 +22,10 @@ sorendition 10 92
 #hardstatus alwayslastline "bob3 | %c %m/%d | %w"
 
 bind W windowlist -b
+bind s  # reset s key
 
-time '%m月%d日 (%D) %c:%s %H%? %l%?'
+#time '%m月%d日 (%D) %c:%s %H%? %l%?'
+time '%m/%d %c:%s %H%? %l%?'
 
 #screen 0 
 #screen 1 emacs -nw
