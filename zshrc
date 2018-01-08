@@ -306,3 +306,72 @@ compctl -/g '*.wmv *.mpg *.avi' mplayer
 compctl -/g '*.tex' + -f platex latex tex tex2pdf
 compctl -/g '*.ps' ps2pdf13
 compctl -/g '*.txt' a2psj
+
+
+# function peco-z-search
+# {
+#   which peco z > /dev/null
+#   if [ $? -ne 0 ]; then
+#     echo "Please install peco and z"
+#     return 1
+#   fi
+#   local res=$(z | sort -rn | cut -c 12- | peco)
+#   if [ -n "$res" ]; then
+#     BUFFER+="cd $res"
+#     zle accept-line
+#   else
+#     return 1
+#   fi
+# }
+# zle -N peco-z-search
+# bindkey '^f' peco-z-search
+# source ~/.zsh.d/z.sh
+# 
+# function peco-select-history() {
+#     # historyを番号なし、逆順、最初から表示。
+#     # 順番を保持して重複を削除。
+#     # カーソルの左側の文字列をクエリにしてpecoを起動
+#     # \nを改行に変換
+#     BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+#     CURSOR=$#BUFFER             # カーソルを文末に移動
+#     zle -R -c                   # refresh
+# }
+# 
+# zle -N peco-select-history
+# bindkey '^R' peco-select-history
+
+
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+ 
+# cdr の設定
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+
+#function peco-cdr () {
+#local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+#if [ -n "$selected_dir" ]; then
+#BUFFER="cd ${selected_dir}"
+#zle accept-line
+#fi
+#zle clear-screen
+#}
+#zle -N peco-cdr
+#bindkey '^F' peco-cdr # M-x cdに割り当て
+
+
+function peco-cdr () {
+local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+if [ -n "$selected_dir" ]; then
+BUFFER="cd ${selected_dir}"
+zle accept-line
+fi
+zle clear-screen
+}
+zle -N peco-cdr
+
+bindkey '^F' peco-cdr # M-x cdに割り当て
